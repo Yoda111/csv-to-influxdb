@@ -36,7 +36,7 @@ def loadCsv(inputfilename, servername, user, password, dbname, metric, timecolum
     with open(inputfilename, 'r') as csvfile:
         reader = csv.DictReader(csvfile, delimiter=delimiter)
         for row in reader:
-            timestamp = unix_time_millis(datetime.datetime.strptime(row[timecolumn],timeformat)) * 1000000 # in nanoseconds
+            timestamp = row[timecolumn]
 
             tags = {}
             for t in tagcolumns:
